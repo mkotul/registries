@@ -1,0 +1,97 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"id": "uri://registries/team#",
+	"new": {
+		"table" : "team",
+		"properties":{
+			"baseData":{
+				"title": "Informácie o družstve k sezóne 2013/2014",
+				"type": "object",
+				"properties": {
+					"name": {
+						"title": "Názov družstva",
+						"type": "string",
+						"required": true
+					},
+					"marketingName": {
+						"title": "Marketingový názov družstva",
+						"type": "string",
+						"required": true
+					},
+					"ageLevel": {
+						"title": "Veková úroveň (max. do)",
+						"type": "string",
+						"required": true
+					},
+					"category": {
+						"title": "Kategória (A - Z)",
+						"type": "string",
+						"required": false
+					},
+					"sex": {
+						"title": "pohlavie",
+						"type": "string",
+						"enum":[
+							"Mužské",
+							"Ženské"
+						],
+						"required": true
+					},
+					"club": {
+						"title": "Klub",
+						"required": true,
+						"$objectLink": {
+							"registry": "organizations",
+							"name": "baseData.name"
+						}
+					},
+					"typeOfFutbal": {
+						"title": "Typ futbalu",
+						"type": "string",
+						"required": true
+					},
+					"season": {
+						"title": "Sezóna",
+						"type": "string",
+						"required": true
+					},
+					"Stadium": {
+						"title": "Štadión",
+						"required": true,
+						"$objectLink": {
+							"registry": "stadium",
+							"name": "baseData.name"
+						}
+					}
+				}
+			},
+			"teamsManager":{
+				"title": "Tímoví manažéri družstva",
+				"type": "object",
+				"properties": {
+					"nameAndSurname": {
+						"title": "Meno a priezvisko",
+						"type": "string",
+						"required": false
+					},
+					"email": {
+						"title": "E-mail",
+						"type": "string",
+						"required": false
+					},
+					"Action": {
+						"title": "Akcia",
+						"type": "string",
+						"required": false
+					}
+				}
+			}
+		}
+	},
+	"view" : {
+		"$ref" : "uri://registries/team#new"
+	},
+	"search" : {
+		"$ref" : "uri://registries/team#new"
+	}
+}

@@ -16,7 +16,6 @@
 		},
 		"baseData": {
 			"title": "Základné údaje",
-			"transCode": "schema.people.baseData",
 			"type": "object",
 			"properties": {
 				"nationalID":{

@@ -1,7 +1,7 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"id": "uri://registries/company#",
-	"new": {
+	"id": "uri://registries/company",
+	"table": "company",
 		"baseData": {
 			"$ref": "uri://registries/orgnization#properties/baseData"
 		},
@@ -14,11 +14,14 @@
 		"bankInfo": {
 			"$ref": "uri://registries/orgnization#properties/bankInfo"
 		}
-	},
-	"view": {
-        "$ref": "uri://registries/organization#"
-	},
-	"search": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"title": "Identifikátor",
+					"type": "string",
+					"required": true
+				},
+				"name": {
         "table": "organizations",
     	"title": "organizacia",
         "listFields": {
