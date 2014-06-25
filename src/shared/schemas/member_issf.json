@@ -1,0 +1,27 @@
+{
+	"$schema" : "http://json-schema.org/schema#",
+	"id" : "uri://registries/member_issf#",
+	"new" : {
+		"table" : "people",
+		"properties" : {
+			"baseData" : {
+				"$ref": "uri://registries/people#person/properties/baseData"
+			},
+			"photoInfo": {
+				"$ref": "uri://registries/people#person/properties/photoInfo"
+			},
+			"contactInfo": {
+				"$ref": "uri://registries/people#person/properties/contactInfo"
+			},
+			"otherInfo": {
+				"$ref": "uri://registries/people#person/properties/otherInfo"
+			}
+		}
+	},
+	"view" : {
+		"$ref" : "uri://registries/member_issf#new"
+	},
+	"search" : {
+		"$ref" : "uri://registries/member_issf#new"
+	}
+}

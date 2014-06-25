@@ -12,7 +12,10 @@ module.exports = {
 	},
 	schemaRegistry:{
 		schemas : [ 'permissions.json', 'login.json', 'systemCredentials.json', 'people.json',
-			        'company.json', 'group.json', 'groupMaster.json', 'member.json', 'organization.json' ]
+			        'company.json', 'group.json', 'groupMaster.json', 'member.json', 'organization.json', 
+					'agent.json', 'club.json', 'coach.json', 'delegate_observer.json', 'delegate_of_match.json',
+					'member_issf.json', 'player.json', 'referee.json', 'stadium.json', 'team.json',
+					'user_issf.json']
 	},
 	logging: (function() {
 			switch (process.env.NODE_ENV) {
