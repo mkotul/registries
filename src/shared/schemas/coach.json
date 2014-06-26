@@ -7,12 +7,13 @@
 			"baseData" : {
 				"$ref": "uri://registries/people#person/properties/baseData"
 			},
-			"additionalInfo": {
-				"$ref": "uri://registries/people#person/properties/additionalDataCoach"
-			},
 			"photoInfo": {
 				"$ref": "uri://registries/people#person/properties/photoInfo"
 			},
+			"additionalInfo": {
+				"$ref": "uri://registries/people#person/properties/additionalDataCoach"
+			},
+			
 			"contactInfo": {
 				"$ref": "uri://registries/people#person/properties/contactInfo"
 			},
@@ -33,6 +34,9 @@
         "listFields": {
             "$ref": "uri://registries/people#person/listFields"
         },
+		"forcedCriterias": [
+			{ "f": "additionalInfo.coachLicence", "op": "ex", "v": ""}
+		],
         "properties": {
             "baseData": {
                 "$ref": "uri://registries/people#person/properties/baseData"
@@ -47,7 +51,7 @@
                 "$ref": "uri://registries/people#person/properties/otherInfo"
             },
             "additionalDataCoach": {
-                "$ref": "uri://registries/people#person/properties/additionalDataCoach/properties/coachLicence"
+                "$ref": "uri://registries/people#person/properties/additionalDataCoach"
             }
         }
 	}

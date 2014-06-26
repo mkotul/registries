@@ -73,8 +73,11 @@
 			"properties": {
 				"firstAssociation": {
 					"title": "Prvotný zväz",
-					"type": "string",
-					"required": false
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
 				},
 				"association": {
 					"title": "Aktuálny zväz",
@@ -115,8 +118,11 @@
 			"properties": {
 				"firstAssociation": {
 					"title": "Prvotný zväz",
-					"type": "string",
-					"required": false
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
 				},
 				"association": {
 					"title": "Aktuálny zväz",
@@ -202,18 +208,27 @@
 				},
 				"clubOfFirstRegistration": {
 					"title": "Klub prvotnej registrácie",
-					"type": "string",
-					"required": false
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
 				},
 				"firstClub": {
 					"title": "Materský klub",
-					"type": "string",
-					"required": false
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
 				},
 				"hostClub": {
 					"title": "Hosťujúci klub (do)",
-					"type": "string",
-					"required": false
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
 				},
 				"stateOfPlayer": {
 					"title": "Stav hráča",
@@ -291,8 +306,8 @@
 					"required": true,
 					"render": {
 						"component": "psui-uploadable-image",
-						"height": 244,
-						"width": 205
+						"height": 268,
+						"width":226
 					}
 				}
 			}

@@ -30,9 +30,6 @@
         "listFields": {
             "$ref": "uri://registries/people#person/listFields"
         },
-		"forcedCriterias": [
-			{ "f": "baseData.name", "op": "ex", "v": ""}
-		],
         "properties": {
             "baseData": {
                 "$ref": "uri://registries/people#person/properties/baseData"

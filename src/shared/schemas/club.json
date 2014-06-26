@@ -7,12 +7,13 @@
 			"baseData" : {
 				"$ref": "uri://registries/organization#properties/baseData"
 			},
-			"additionalData":{
-				"$ref": "uri://registries/organization#properties/additionalData"
-			},
 			"logoInfo": {
 				"$ref": "uri://registries/organization#properties/logoInfo"
 			},
+			"additionalData":{
+				"$ref": "uri://registries/organization#properties/additionalData"
+			},
+			
 			"contactInfo": {
 				"$ref": "uri://registries/organization#properties/contactInfo"
 			},
