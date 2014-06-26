@@ -1,17 +1,17 @@
 <div class="container">
 	<div class="row">
 		<fieldset>
-			<legend>Zoznam schém na editáciu</legend>
+			<legend>{{'schema.editor.list.of.schemas.for.editation' | translate}}</legend>
 		</fieldset>
 
 		<div class="col-md-4">
 			<table class="schemaedit">
 				<thead>
 					<tr>
-						<th>ID</th>
-						<th>Názov</th>
-						<th>Veľkosť</th>
-						<th>Akcie</th>
+						<th>{{'schema.editor.id' | translate}}</th>
+						<th>{{'schema.editor.name' | translate}}</th>
+						<th>{{'schema.editor.size' | translate}}</th>
+						<th>{{'schema.editor.actions' | translate}}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -20,7 +20,7 @@
 						<td>{{schema.name}}</td>
 						<td>{{schema.size}}</td>
 						<!-- <td class="btn-group btn-group-xs"><a href="{{ '#/schema/edit/'+schema.name}}" class="btn btn-default">edit</a></td> -->
-						<td class="btn-group btn-group-xs"><a href="" ng-click="selectSchema(schema)" class="btn btn-primary"><i class="glyphicon-pencil"></i>Upraviť</a></td>
+						<td class="btn-group btn-group-xs"><a href="" ng-click="selectSchema(schema)" class="btn btn-primary"><i class="glyphicon-pencil"></i>{{'schema.editor.edit' | translate}}</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -37,10 +37,10 @@
 					onLoad: aceLoaded
 				}"
 				ng-model="aceModel">
-					Ace here
+				
 				</div>
 				<br>
-				<button title="Send" class="btn btn-primary" ng-click="postData(aceModel)"><i class="glyphicon-ok"></i>Uložiť</button>
+				<button title="Send" class="btn btn-primary" ng-click="postData(aceModel)"><i class="glyphicon-ok"></i>{{'schema.editor.save' | translate}}</button>
 			</div>
 		</section>
 	</div>
