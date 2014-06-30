@@ -1,41 +1,34 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-7 col-md-offset-0">
-
-			<div ng-show="alert" class="alert alert-danger alert-dismissable">
-				<button type="button" class="close" data-dismiss="alert"
-					aria-hidden="true">&times;</button>
-				<strong>Validácia zlyhala</strong> {{alert}}
-			</div>
-
 			<fieldset>
-				<legend>Vyhľadávanie ({{entity}})</legend>
+				<legend>{{'security.user.edit.searching' |translate}} ({{entity}})</legend>
 			</fieldset>
 
 			<div class="row" ng-repeat="crit in searchCrit">
 
 				<div class="col-sm-5">
-					<label for="name" class="control-label">Atribút</label><br> <select
+					<label for="name" class="control-label">{{'security.user.edit.attribute' |translate}}</label><br> <select
 						class="form-control" ng-model="crit.attribute.path"
 						ng-options="att.title for att in searchDef.attributes"></select>
 				</div>
 				<div class="col-sm-2">
-					<label for="name" class="control-label">Operátor</label><br> <select
+					<label for="name" class="control-label">{{'security.user.edit.operator' |translate}}</label><br> <select
 						class="form-control" ng-model="crit.operator"
 						ng-Init="crit.operator=searchDef.operators[0]"
 						ng-options="op.title for op in searchDef.operators"></select>
 				</div>
 				<div class="col-sm-2">
-					<label for="name" class="control-label">Hodnota</label><br> <input
+					<label for="name" class="control-label">{{'security.user.edit.value' |translate}}</label><br> <input
 						type="text" id="name" name="name" ng-model="crit.value"
-						placeholder="value" class="ng-pristine ng-valid form-control"
+						placeholder="{{'security.user.edit.value' |translate}}" class="ng-pristine ng-valid form-control"
 						autocomplete="off">
 
 				</div>
 				<div class="form-group col-sm-2">
 					<label class="control-label">&nbsp;</label><br>
 					<button ng-click="removeCrit($index)" class="btn btn-secundary">
-						<i class="glyphicon-remove"></i>Zrušiť
+						<i class="glyphicon-remove"></i>{{'security.user.edit.cancel' |translate}}
 					</button>
 				</div>
 			</div>
@@ -45,10 +38,10 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<button ng-click="addCrit()" class="btn btn-secondary">
-						<i class="glyphicon-plus"></i>Pridať
+						<i class="glyphicon-plus"></i>{{'security.user.edit.add' |translate}}
 					</button>
 					<button ng-click="search()" class="btn btn-primary">
-						<i class="glyphicon-search"></i>Hľadať
+						<i class="glyphicon-search"></i>{{'security.user.edit.search' |translate}}
 					</button>
 				</div>
 			</div>
@@ -57,13 +50,13 @@
 		<div ng-show='userList' class="col-md-6">
 			<br> <br>
 			<fieldset>
-				<legend>Výsledok ({{entity}})</legend>
+				<legend>{{'security.user.edit.result' |translate}} ({{entity}})</legend>
 			</fieldset>
 			<table class="bootstrap">
 				<thead>
 					<tr>
 						<th ng-repeat="header in headers">{{header.title}}</th>
-						<th>Akcie</th>
+						<th>{{'security.user.edit.actions' |translate}}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -74,7 +67,7 @@
 
 						<td class="btn-group btn-group-xs"><a href=""
 							ng-click='selectUser(user)' class="btn btn-primary"><i
-								class="glyphicon-pencil"></i>Upraviť</a></td>
+								class="glyphicon-pencil"></i>{{'security.user.edit.edit' |translate}}</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -83,7 +76,7 @@
 		<div ng-show="selectedUser" class="col-md-5">
 			<fieldset class="row">
 				<div class="col-md-12">
-					<legend>Skupiny pre používateľa -
+					<legend>{{'security.user.edit.groups.for.users' |translate}} -
 						{{selectedUser.systemCredentials.login.loginName}}</legend>
 				</div>
 
@@ -92,7 +85,7 @@
 						<table>
 							<thead>
 								<tr>
-									<th>Pridelené skupiny</th>
+									<th>{{'security.user.edit.added.groups' |translate}}</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -109,7 +102,7 @@
 						<table>
 							<thead>
 								<tr>
-									<th>Dostupné skupiny</th>
+									<th>{{'security.user.edit.available.groups' |translate}}</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -127,7 +120,7 @@
 
 			<fieldset class="row">
 				<div class="col-md-12">
-					<legend>Práva pre používateľa -
+					<legend>{{'security.user.edit.permissions.for.user' |translate}} -
 						{{selectedUser.systemCredentials.login.loginName}}</legend>
 				</div>
 				<div class="col-md-6">
@@ -135,7 +128,7 @@
 						<table border="1">
 							<thead>
 								<tr>
-									<th>Pridelené práva</th>
+									<th>{{'security.user.edit.added.permissions' |translate}}</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -153,7 +146,7 @@
 						<table border="1">
 							<thead>
 								<tr>
-									<th>Dostupné práva</th>
+									<th>{{'security.user.edit.available.permissions' |translate}}</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -168,7 +161,7 @@
 			</fieldset>
 			<br>
 			<button ng-click="updateUserSecurity()" class="btn btn-primary">
-				<i class="glyphicon-ok"></i>Uložiť
+				<i class="glyphicon-ok"></i>{{'security.user.edit.save' |translate}}
 			</button>
 		</div>
 	</div>

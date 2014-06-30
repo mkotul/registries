@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('psui-datepicker', [])
-.directive('psuiDatepicker', ['$timeout', function ($timeout) {
+.directive('psuiDatepicker', ['$timeout', '$compile','$translate', function ($timeout, $compile, $translate) {
 	return {
 		restrict: 'AE',
 		scope: {
@@ -77,7 +77,7 @@ angular.module('psui-datepicker', [])
 			
 			var hideDropdown;
 			
-			dropdown.on('focus',function(evt){
+			dropdown.on('focus',function(evt){		
 				$timeout.cancel(hideDropdown);
 				hideDropdown = null;
 				dropdown.removeClass('psui-hidden');
@@ -112,12 +112,12 @@ angular.module('psui-datepicker', [])
 			var selDate;
 			
 			buttonShowDropdown.on('click', function(evt) {
-				if(hideDropdown){
+				if(hideDropdown>0){
 					$timeout.cancel(hideDropdown);
 					hideDropdown = null;
 					dropdown.removeClass('psui-hidden');
 				}
-				console.log('a');
+				
 				if (dropdown.hasClass('psui-hidden')) {
 					dropdown.removeClass('psui-hidden');
 					if (elm.val()){
@@ -130,10 +130,10 @@ angular.module('psui-datepicker', [])
 							makeDateTable(datum);
 						}
 					}
-					console.log('b');
+					
 				} else {
 					dropdown.addClass('psui-hidden');
-					console.log('c');
+					console.log('alb');
 				}
 			});
 			
@@ -164,29 +164,29 @@ angular.module('psui-datepicker', [])
 			
 			var whichMonth = function(month){
 				if (month == 0){
-					return "Jan";
+					return "{{\'date.jan\' | translate}}";
 				}else if (month == 1){
-					return "Feb";
+					return "{{\'date.feb\' | translate}}";
 				}else if (month == 2){
-					return "Mar";
+					return "{{\'date.mar\' | translate}}";
 				}else if (month == 3){
-					return "Apr";
+					return "{{\'date.apr\' | translate}}";
 				}else if (month == 4){
-					return "Maj";
+					return "{{\'date.may\' | translate}}";
 				}else if (month == 5){
-					return "Jun";
+					return "{{\'date.jun\' | translate}}";
 				}else if (month == 6){
-					return "Jul";
+					return "{{\'date.jul\' | translate}}";
 				}else if (month == 7){
-					return "Aug";	
+					return "{{\'date.aug\' | translate}}";	
 				}else if (month == 8){
-					return "Sep";
+					return "{{\'date.sep\' | translate}}";
 				}else if (month == 9){
-					return "Okt";
+					return "{{\'date.oct\' | translate}}";
 				}else if (month == 10){
-					return "Nov";
+					return "{{\'date.nov\' | translate}}";
 				}else if (month == 11){
-					return "Dec";
+					return "{{\'date.dec\' | translate}}";
 				}
 			}
 			
@@ -199,44 +199,56 @@ angular.module('psui-datepicker', [])
 				td.data("datum",new Date(date.getTime()));
 				td.on('click', function(evt){
 					
-					var element = angular.element(evt.target);
-					var prevMonth = new Date (element.data("datum").getTime());
-					prevMonth.setMonth(prevMonth.getMonth()-1);
-					dateTbody.empty();
-					makeDateTable(prevMonth);
+					
+					scope.$apply(function(){
+						var element = angular.element(evt.target);
+						var prevMonth = new Date (element.data("datum").getTime());
+						prevMonth.setMonth(prevMonth.getMonth()-1);
+						dateTbody.empty();
+						makeDateTable(prevMonth);
+					});
+					
 				})
 				tr.append(td);
 				td = angular.element('<td colspan="5" class="action-date">' + whichMonth(date.getMonth()) + ' ' + date.getFullYear() + '</td>'); 
 				td.data("datum",new Date(date.getTime()));
 				td.on('click',function(evt){
-					var element = angular.element(evt.target);
-					var thisMonth = new Date (element.data("datum").getTime());
-					dateTbody.empty();
-					makeMonthTable(thisMonth);
+					scope.$apply(function(){
+						var element = angular.element(evt.target);
+						var thisMonth = new Date (element.data("datum").getTime());
+						dateTbody.empty();
+						makeMonthTable(thisMonth);
+					});
 				})
 				tr.append(td);
 				td = angular.element('<td  class="action-next"></td>'); 
 				td.data("datum",new Date(date.getTime()));
 				td.on('click', function(evt){
 					
-					var element = angular.element(evt.target);
-					var nextMonth = new Date (element.data("datum").getTime());
-					nextMonth.setMonth(nextMonth.getMonth()+1);
-					dateTbody.empty();
-					makeDateTable(nextMonth);
+					
+					scope.$apply(function(){
+						var element = angular.element(evt.target);
+						var nextMonth = new Date (element.data("datum").getTime());
+						nextMonth.setMonth(nextMonth.getMonth()+1);
+						dateTbody.empty();
+						makeDateTable(nextMonth);
+					});
 				})
 				tr.append(td);
 				dateTbody.append(tr);
 				
 				tr = angular.element('<tr></tr>');
-				td = angular.element('<td colspan="7" class="action-current-day">Current Day</td>');
+				td = angular.element('<td colspan="7" class="action-current-day">{{\'date.current.day\' | translate}}</td>');
 				td.data("datum", new Date() );
 				td.on('click', function(evt){
 				
-					var element = angular.element(evt.target);
-					var curDate = new Date (element.data("datum").getTime());
-					dateTbody.empty();
-					makeDateTable(curDate);
+					
+					scope.$apply(function(){
+						var element = angular.element(evt.target);
+						var curDate = new Date (element.data("datum").getTime());
+						dateTbody.empty();
+						makeDateTable(curDate);
+					});
 				
 				})
 				tr.append(td);
@@ -244,19 +256,19 @@ angular.module('psui-datepicker', [])
 				
 				tr = angular.element('<tr class="labels"></tr>');
 				
-				td = angular.element('<td>Po</td>'); 
+				td = angular.element('<td>{{\'date.monday\' | translate}}</td>'); 
 				tr.append(td);
-				td = angular.element('<td>Ut</td>'); 
+				td = angular.element('<td>{{\'date.tuesday\' | translate}}</td>'); 
 				tr.append(td);
-				td = angular.element('<td>St</td>'); 
+				td = angular.element('<td>{{\'date.wednesday\' | translate}}</td>');
 				tr.append(td);
-				td = angular.element('<td>Št</td>'); 
+				td = angular.element('<td>{{\'date.thursday\' | translate}}</td>'); 
 				tr.append(td);
-				td = angular.element('<td>Pi</td>'); 
+				td = angular.element('<td>{{\'date.friday\' | translate}}</td>'); 
 				tr.append(td);
-				td = angular.element('<td>So</td>'); 
+				td = angular.element('<td>{{\'date.saturday\' | translate}}</td>'); 
 				tr.append(td);
-				td = angular.element('<td>Ne</td>'); 
+				td = angular.element('<td>{{\'date.sunday\' | translate}}</td>');
 				tr.append(td);
 				
 				dateTbody.append(tr);
@@ -280,7 +292,7 @@ angular.module('psui-datepicker', [])
 				date.setDate(date.getDate()- whichDay);
 				}
 				
-				console.log(selDate);
+			
 				
 				for (var i = 0; i<6; i++){
 					tr = angular.element('<tr class="days"></tr>');
@@ -322,6 +334,7 @@ angular.module('psui-datepicker', [])
 						date.setDate(date.getDate() + 1);
 					}
 					dateTbody.append(tr);
+					$compile(dateTbody)(scope);
 				}
 			
 			}
@@ -335,45 +348,50 @@ angular.module('psui-datepicker', [])
 				td = angular.element('<td  class="action-previous"></td>'); 
 				td.data("datum",new Date(date.getTime()));
 				td.on('click', function(evt){
-					
-					var element = angular.element(evt.target);
-					var prevYear = new Date (element.data("datum").getTime());
-					prevYear.setFullYear(prevYear.getFullYear()-1);
-					dateTbody.empty();
-					makeMonthTable(prevYear);
+					scope.$apply(function(){
+						var element = angular.element(evt.target);
+						var prevYear = new Date (element.data("datum").getTime());
+						prevYear.setFullYear(prevYear.getFullYear()-1);
+						dateTbody.empty();
+						makeMonthTable(prevYear);
+					});
 				})
 				tr.append(td);
 				td = angular.element('<td colspan="2" class="action-date">' + date.getFullYear() + '</td>'); 
 				td.data("datum",new Date(date.getTime()));
 				td.on('click',function(evt){
-					var element = angular.element(evt.target);
-					var thisYear = new Date (element.data("datum").getTime());
-					dateTbody.empty();
-					makeYearTable(thisYear);
+					scope.$apply(function(){
+						var element = angular.element(evt.target);
+						var thisYear = new Date (element.data("datum").getTime());
+						dateTbody.empty();
+						makeYearTable(thisYear);
+					});
 				})
 				tr.append(td);
 				td = angular.element('<td class="action-next"></td>'); 
 				td.data("datum",new Date(date.getTime()));
 				td.on('click', function(evt){
-					
-					var element = angular.element(evt.target);
-					var nextYear = new Date (element.data("datum").getTime());
-					nextYear.setFullYear(nextYear.getFullYear()+1);
-					dateTbody.empty();
-					makeMonthTable(nextYear);
+					scope.$apply(function(){
+						var element = angular.element(evt.target);
+						var nextYear = new Date (element.data("datum").getTime());
+						nextYear.setFullYear(nextYear.getFullYear()+1);
+						dateTbody.empty();
+						makeMonthTable(nextYear);
+					});
 				})
 				tr.append(td);
 				dateTbody.append(tr);
 				
 				tr = angular.element('<tr></tr>');
-				td = angular.element('<td colspan="7"  class="action-current-day">Current Day</td>');
+				td = angular.element('<td colspan="7" class="action-current-day">{{\'date.current.day\' | translate}}</td>');
 				td.data("datum", new Date() );
 				td.on('click', function(evt){
-				
-					var element = angular.element(evt.target);
-					var curDate = new Date (element.data("datum").getTime());
-					dateTbody.empty();
-					makeDateTable(curDate);
+					scope.$apply(function(){
+						var element = angular.element(evt.target);
+						var curDate = new Date (element.data("datum").getTime());
+						dateTbody.empty();
+						makeDateTable(curDate);
+					});
 				
 				})
 				tr.append(td);
@@ -389,15 +407,18 @@ angular.module('psui-datepicker', [])
 						td.data("datum",new Date(dateMonthTable.getTime()));
 						
 						td.on('click', function(evt){
-							var element = angular.element(evt.target);
-							var thisDate = new Date (element.data("datum").getTime());
-							dateTbody.empty();
-							makeDateTable(thisDate);
+							scope.$apply(function(){
+								var element = angular.element(evt.target);
+								var thisDate = new Date (element.data("datum").getTime());
+								dateTbody.empty();
+								makeDateTable(thisDate);
+							});
 						})
 						tr.append(td);
 						month = month + 1;
 					}
 					dateTbody.append(tr);
+					$compile(dateTbody)(scope);
 				}
 			
 			}
@@ -410,12 +431,13 @@ angular.module('psui-datepicker', [])
 				td = angular.element('<td class="action-previous"></td>'); 
 				td.data("datum",new Date(date.getTime()));
 				td.on('click', function(evt){
-					
-					var element = angular.element(evt.target);
-					var prevYears = new Date (element.data("datum").getTime());
-					prevYears.setFullYear(prevYears.getFullYear()-9);
-					dateTbody.empty();
-					makeYearTable(prevYears);
+					scope.$apply(function(){
+						var element = angular.element(evt.target);
+						var prevYears = new Date (element.data("datum").getTime());
+						prevYears.setFullYear(prevYears.getFullYear()-9);
+						dateTbody.empty();
+						makeYearTable(prevYears);
+					});
 				})
 				tr.append(td);
 				td = angular.element('<td></td>'); 
@@ -423,26 +445,27 @@ angular.module('psui-datepicker', [])
 				td = angular.element('<td class="action-next"></td>'); 
 				td.data("datum",new Date(date.getTime()));
 				td.on('click', function(evt){
-					
-					var element = angular.element(evt.target);
-					var nextYears = new Date (element.data("datum").getTime());
-					nextYears.setFullYear(nextYears.getFullYear()+9);
-					dateTbody.empty();
-					makeYearTable(nextYears);
+					scope.$apply(function(){
+						var element = angular.element(evt.target);
+						var nextYears = new Date (element.data("datum").getTime());
+						nextYears.setFullYear(nextYears.getFullYear()+9);
+						dateTbody.empty();
+						makeYearTable(nextYears);
+					});
 				})
 				tr.append(td);
 				dateTbody.append(tr);
 				
 				tr = angular.element('<tr></tr>');
-				td = angular.element('<td colspan="7" class="action-current-day">Current Day</td>');
+				td = angular.element('<td colspan="7" class="action-current-day">{{\'date.current.day\' | translate}}</td>');
 				td.data("datum", new Date() );
 				td.on('click', function(evt){
-				
-					var element = angular.element(evt.target);
-					var curDate = new Date (element.data("datum").getTime());
-					dateTbody.empty();
-					makeDateTable(curDate);
-				
+					scope.$apply(function(){
+						var element = angular.element(evt.target);
+						var curDate = new Date (element.data("datum").getTime());
+						dateTbody.empty();
+						makeDateTable(curDate);
+					});
 				})
 				tr.append(td);
 				dateTbody.append(tr);
@@ -458,15 +481,18 @@ angular.module('psui-datepicker', [])
 						td.data("datum",new Date(dateYearTable.getTime()));
 						
 						td.on('click', function(evt){
-							var element = angular.element(evt.target);
-							var thisYear = new Date (element.data("datum").getTime());
-							dateTbody.empty();
-							makeMonthTable(thisYear);
+							scope.$apply(function(){
+								var element = angular.element(evt.target);
+								var thisYear = new Date (element.data("datum").getTime());
+								dateTbody.empty();
+								makeMonthTable(thisYear);
+							});
 						})
 						tr.append(td);
 						year = year + 1;
 					}
 					dateTbody.append(tr);
+					$compile(dateTbody)(scope);
 				}
 			
 			}
