@@ -16,35 +16,48 @@
 		},
 		"baseData": {
 			"title": "Základné údaje",
+			"transCode": "schema.people.baseData",
 			"type": "object",
 			"properties": {
+				"nationalID":{
+					"title": "Rodné číslo",
+					"transCode": "schema.people.nationalID",
+					"type": "string",
+					"required": true
+				},
 				"id": {
-					"title": "Identifikátor",
+					"title": "Identifikačné číslo",
+					"transCode": "schema.people.identifier",
 					"type": "string",
 					"required": true
 				},
 				"name": {
 					"title": "Meno",
+					"transCode": "schema.people.name",
 					"type": "string",
 					"required": true
 				},
 				"surName": {
 					"title": "Priezvisko",
+					"transCode": "schema.people.surName",
 					"type": "string",
 					"required": true
 				},
 				"bornName": {
 					"title": "Rodné priezvisko",
+					"transCode": "schema.people.bornName",
 					"type": "string",
 					"required": false
 				},
 				"title": {
 					"title": "Titul",
+					"transCode": "schema.people.title",
 					"type": "string",
 					"required": false
 				},
 				"birthDate": {
 					"title": "Dátum narodenia",
+					"transCode": "schema.people.birthDate",
 					"type": "string",
 					"required": true,
 					"render" : {
@@ -53,6 +66,7 @@
 				},
 				"gender": {
 					"title": "Pohlavie",
+					"transCode": "schema.people.gender",
 					"type": " string",
 					"enum": [
 						"Muž",
@@ -61,20 +75,24 @@
 					"required": true
 				},
 				"nationality": {
-					"title": "Štatna prislusnosť",
+					"title": "Štatna príslusnosť",
+					"transCode": "schema.people.nationality",
 					"type": "string",
 					"required": true
 				}
 			}
 		},
-		"additionalDataReferee":{
-			"title": "Dodatočné informácie rozhodcu",
+		"futballReferee":{
+			"title": "Futbalový rozhodca",
 			"type": "object",
 			"properties": {
 				"firstAssociation": {
 					"title": "Prvotný zväz",
-					"type": "string",
-					"required": false
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
 				},
 				"association": {
 					"title": "Aktuálny zväz",
@@ -109,14 +127,17 @@
 				}
 			}
 		},
-		"additionalDataCoach":{
-			"title": "Dodatočné informácie trénera",
+		"futballCoach":{
+			"title": "Futbalový tréner",
 			"type": "object",
 			"properties": {
 				"firstAssociation": {
 					"title": "Prvotný zväz",
-					"type": "string",
-					"required": false
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
 				},
 				"association": {
 					"title": "Aktuálny zväz",
@@ -151,14 +172,17 @@
 				}
 			}
 		},
-		"additionalDataAgent":{
-			"title": "Dodatočné informácie",
+		"futballAgent":{
+			"title": "Futbalový agent",
 			"type": "object",
 			"properties": {
 				"firstAssociation": {
 					"title": "Prvotný zväz",
-					"type": "string",
-					"required": false
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
 				},
 				"state": {
 					"title": "Stav",
@@ -191,29 +215,33 @@
 				}
 			}
 		},
-		"additionalDataPlayer":{
-			"title": "Dodatočné informácie hráča",
+		"futballPlayer":{
+			"title": "Futbalový hráč",
 			"type": "object",
 			"properties": {
-				"typeOfFootball": {
-					"title": "Typ futbalu",
-					"type": "string",
-					"required": true
-				},
 				"clubOfFirstRegistration": {
 					"title": "Klub prvotnej registrácie",
-					"type": "string",
-					"required": false
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
 				},
 				"firstClub": {
 					"title": "Materský klub",
-					"type": "string",
-					"required": false
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
 				},
 				"hostClub": {
 					"title": "Hosťujúci klub (do)",
-					"type": "string",
-					"required": false
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
 				},
 				"stateOfPlayer": {
 					"title": "Stav hráča",
@@ -251,16 +279,11 @@
 					"render" : {
 						"component" : "psui-datepicker"
 					}
-				},
-				"playerLicence": {
-					"title": "Hráčska licencia",
-					"type": "string",
-					"required": true
 				}
 			}
 		},
-		"additionalDataUserIssf":{
-			"title": "Dodatočné informácie",
+		"futballUserIssf":{
+			"title": "Futbalový user",
 			"type": "object",
 			"properties": {
 				"Club": {
@@ -283,10 +306,12 @@
 		},
 		"photoInfo": {
 			"title": "Fotografie",
+			"transCode": "schema.people.photoInfo",
 			"type": "object",
 			"properties": {
 				"photo": {
 					"title": "Fotografia",
+					"transCode": "schema.people.photo",
 					"type": "string",
 					"required": true,
 					"render": {
@@ -299,82 +324,128 @@
 		},
 		"contactInfo": {
 			"title": "Kontaktné údaje",
+			"transCode": "schema.people.contactInfo",
 			"type": "object",
 			"properties": {
 				"street": {
 					"title": "Ulica",
+					"transCode": "schema.people.street",
 					"type": "string",
 					"required": true
 				},
 				"houseNumber": {
 					"title": "Číslo domu",
+					"transCode": "schema.people.houseNumber",
 					"type": "string",
 					"required": true
 				},
 				"city": {
 					"title": "Obec",
+					"transCode": "schema.people.city",
 					"type": "string",
 					"required": true
 				},
 				"zipCode": {
 					"title": "PSČ",
+					"transCode": "schema.people.zipCode",
 					"type": "string",
 					"required": true
 				},
 				"country": {
 					"title": "Štát",
+					"transCode": "schema.people.country",
 					"type": "string",
 					"required": true
 				},
 				"phoneNumber": {
 					"title": "Telefón",
+					"transCode": "schema.people.phoneNumber",
 					"type": "string",
 					"required": false
 				},
 				"mobileNumber": {
 					"title": "Mobil",
+					"transCode": "schema.people.mobileNumber",
 					"type": "string",
 					"required": false
 				},
 				"email": {
 					"title": "E-mail",
+					"transCode": "schema.people.email",
 					"type": "string",
 					"required": true
 				}
 			}
 		},
 		"bankInfo": {
-			"title": "Bankové spojenie",
+			"title": "Fakturačné údaje",
+			"transCode": "schema.people.bankInfo",
 			"type": "object",
 			"properties": {
 				"bankAccount": {
 					"title": "Číslo účtu",
+					"transCode": "schema.people.bankAccount",
 					"type": "string",
 					"required": false
 				},
 				"bankCode": {
 					"title": "Kód banky",
+					"transCode": "schema.people.bankCode",
 					"type": "string",
 					"required": false
 				},
 				"iban": {
 					"title": "IBAN",
+					"transCode": "schema.people.iban",
 					"type": "string",
 					"required": false
 				},
 				"swift": {
 					"title": "SWIFT",
+					"transCode": "schema.people.swift",
 					"type": "string",
 					"required": false
+				},
+				"street": {
+					"title": "Ulica",
+					"transCode": "schema.people.street",
+					"type": "string",
+					"required": true
+				},
+				"houseNumber": {
+					"title": "Číslo domu",
+					"transCode": "schema.people.houseNumber",
+					"type": "string",
+					"required": true
+				},
+				"city": {
+					"title": "Obec",
+					"transCode": "schema.people.city",
+					"type": "string",
+					"required": true
+				},
+				"zipCode": {
+					"title": "PSČ",
+					"transCode": "schema.people.zipCode",
+					"type": "string",
+					"required": true
+				},
+				"country": {
+					"title": "Štát",
+					"transCode": "schema.people.country",
+					"type": "string",
+					"required": true
 				}
 			}
 		},
 		"otherInfo": {
 			"title": "Ostatné údaje",
+			"transCode": "schema.people.otherInfo",
 			"type": "object",
 			"properties": {
 				"isPhotoPublic": {
 					"title": "Je fotka verejná",
+					"transCode": "schema.people.isPhotoPublic",
 					"type": "string",
 					"enum": [
 						"Áno",
@@ -384,17 +455,26 @@
 				},
 				"idCardNumber": {
 					"title": "Číslo OP",
+					"transCode": "schema.people.idCardNumber",
+					"type": "string",
+					"required": false
+				},
+				"passportNumber":{
+					"title": "Číslo pasu",
+					"transCode": "schema.people.passportNumber",
 					"type": "string",
 					"required": false
 				},
 				"note": {
 					"title": "Poznámka",
+					"transCode": "schema.people.note",
 					"type": "string",
 					"required": false,
 					"large": true
 				},
 				"language": {
 					"title": "Jazykové znalosti",
+					"transCode": "schema.people.language",
 					"type": "string",
 					"required": false
 				}

@@ -10,33 +10,45 @@
 	"properties": {
 		"baseData": {
 			"title": "Základné údaje",
+			"transCode": "schema.org.baseData",
 			"type": "object",
 			"properties": {
-				"id": {
-					"title": "Identifikátor",
+				"name": {
+					"title": "Obchodný názov spoločnosti",
+					"transCode": "schema.org.name",
 					"type": "string",
 					"required": true
 				},
-				"name": {
-					"title": "Názov organizacie",
+				"stateOfOrganization": {
+					"title": "Stav organizacie",
+					"transCode":"schema.org.stateOfOrganization",
 					"type": "string",
 					"required": true
 				}
 			}
 		},
-		"additionalData":{
-			"title": "Dodatočné informácie",
+		"volleyballClub":{
+			"title": "Volejbalový klub",
 			"type": "object",
 			"properties": {
-				"typeOfFutbal": {
-					"title": "Typ futbalu",
+				"sportName":{
+					"title": "Športový názov klubu",
 					"type": "string",
-					"required": true
+					"required": false
 				},
 				"association": {
 					"title": "Zväz",
+					"required": false,
+					"$objectLink": {
+						"registry": "organizations",
+						"name": "baseData.name"
+					}
+				},
+				"ico": {
+					"title": "IČO",
+					"transCode": "schema.org.ico",
 					"type": "string",
-					"required": false
+					"required": true
 				},
 				"birthDate": {
 					"title": "Dátum založenia",
@@ -68,15 +80,6 @@
 					],
 					"required": true
 				},
-				"issfActive": {
-					"title": "ISSF aktívny",
-					"type": "string",
-					"enum": [
-						"Áno",
-						"Nie"
-					],
-					"required": true
-				},
 				"dateOfRegistration": {
 					"title": "Dátum registrácie",
 					"type": "string",
@@ -96,146 +99,8 @@
 				}
 			}
 		},
-		"logoInfo": {
-			"title": "Logo",
-			"type": "object",
-			"properties": {
-				"photo": {
-					"title": "Logo",
-					"type": "string",
-					"required": true,
-					"render": {
-						"component": "psui-uploadable-image",
-						"height": 244,
-						"width": 205
-					}
-				}
-			}
-		},
-		"contactInfo": {
-			"title": "Kontaktné údaje",
-			"type": "object",
-			"properties": {
-				"street": {
-					"title": "Ulica",
-					"type": "string",
-					"required": true
-				},
-				"houseNumber": {
-					"title": "Číslo domu",
-					"type": "string",
-					"required": true
-				},
-				"city": {
-					"title": "Obec",
-					"type": "string",
-					"required": true
-				},
-				"zipCode": {
-					"title": "PSČ",
-					"type": "string",
-					"required": true
-				},
-				"country": {
-					"title": "Štát",
-					"type": "string",
-					"required": true
-				},
-				"phoneNumber": {
-					"title": "Telefón",
-					"type": "string",
-					"required": false
-				},
-				"mobileNumber": {
-					"title": "Mobil",
-					"type": "string",
-					"required": false
-				},
-				"email": {
-					"title": "E-mail",
-					"type": "string",
-					"required": true
-				}
-			}
-		},
-		"bankInfo": {
-			"title": "Fakturačné údaje",
-			"type": "object",
-			"properties": {
-				"name": {
-					"title": "Obchodný názov spoločnosti",
-					"type": "string",
-					"required": false
-				},
-				"statutarOrganOfClub": {
-					"title": "Štatutárny orgán klubu",
-					"type": "string",
-					"required": false
-				},
-				"ico": {
-					"title": "IČO",
-					"type": "string",
-					"required": false
-				},
-				"dic": {
-					"title": "DIČ",
-					"type": "string",
-					"required": false
-				},
-				"icDPH": {
-					"title": "IČ DPH",
-					"type": "string",
-					"required": false
-				},
-				"bankAccount": {
-					"title": "Číslo účtu",
-					"type": "string",
-					"required": false
-				},
-				"bankCode": {
-					"title": "Kód banky",
-					"type": "string",
-					"required": false
-				},
-				"iban": {
-					"title": "IBAN",
-					"type": "string",
-					"required": false
-				},
-				"swift": {
-					"title": "SWIFT",
-					"type": "string",
-					"required": false
-				},
-				"street": {
-					"title": "Ulica",
-					"type": "string",
-					"required": false
-				},
-				"houseNumber": {
-					"title": "Číslo domu",
-					"type": "string",
-					"required": false
-				},
-				"city": {
-					"title": "Obec",
-					"type": "string",
-					"required": false
-				},
-				"zipCode": {
-					"title": "PSČ",
-					"type": "string",
-					"required": false
-				},
-				"country": {
-					"title": "Štát",
-					"type": "string",
-					"required": false
-				}
-			}
-		},
-		"curier": {
-			"title": "Kuriér - Dodacia adresa",
+		"volleyballClubCurier": {
+			"title": "Volleyballový klub - poštová adresa",
 			"type": "object",
 			"properties": {
 				"contactPerson": {
@@ -275,15 +140,161 @@
 				}
 			}
 		},
-		"otherInfo": {
-			"title": "Ostatné informácie",
+		"logoInfo": {
+			"title": "Logá",
+			"transCode": "schema.org.logoInfo",
 			"type": "object",
 			"properties": {
-				"note": {
-					"title": "Poznámka",
+				"photo": {
+					"title": "Logo",
+					"transCode": "schema.org.logo",
 					"type": "string",
-					"required": false,
-					"large": true
+					"required": true,
+					"render": {
+						"component": "psui-uploadable-image",
+						"height": 244,
+						"width": 205
+					}
+				}
+			}
+		},
+		"contactInfo": {
+			"title": "Kontaktné údaje",
+			"transCode": "schema.org.contactInfo",
+			"type": "object",
+			"properties": {
+				"street": {
+					"title": "Ulica",
+					"transCode": "schema.org.street",
+					"type": "string",
+					"required": true
+				},
+				"houseNumber": {
+					"title": "Číslo domu",
+					"transCode": "schema.org.houseNumber",
+					"type": "string",
+					"required": true
+				},
+				"city": {
+					"title": "Obec",
+					"transCode": "schema.org.city",
+					"type": "string",
+					"required": true
+				},
+				"zipCode": {
+					"title": "PSČ",
+					"transCode": "schema.org.zipCode",
+					"type": "string",
+					"required": true
+				},
+				"country": {
+					"title": "Štát",
+					"transCode": "schema.org.country",
+					"type": "string",
+					"required": true
+				},
+				"phoneNumber": {
+					"title": "Telefón",
+					"transCode": "schema.org.phoneNumber",
+					"type": "string",
+					"required": false
+				},
+				"mobileNumber": {
+					"title": "Mobil",
+					"transCode": "schema.org.mobileNumber",
+					"type": "string",
+					"required": false
+				},
+				"email": {
+					"title": "E-mail",
+					"transCode": "schema.org.email",
+					"type": "string",
+					"required": true
+				}
+			}
+		},
+		"bankInfo": {
+			"title": "Fakturačné údaje",
+			"transCode": "schema.org.bankInfo",
+			"type": "object",
+			"properties": {
+				"statutarOrgan": {
+					"title": "Štatutárny orgán",
+					"transCode": "schema.org.statutarOrgan",
+					"type": "string",
+					"required": false
+				},
+				"ico": {
+					"title": "IČO",
+					"transCode": "schema.org.ico",
+					"type": "string",
+					"required": false
+				},
+				"dic": {
+					"title": "DIČ",
+					"transCode": "schema.org.dic",
+					"type": "string",
+					"required": false
+				},
+				"icDPH": {
+					"title": "IČ DPH",
+					"transCode": "schema.org.icDPH",
+					"type": "string",
+					"required": false
+				},
+				"bankAccount": {
+					"title": "Číslo účtu",
+					"transCode": "schema.org.bankAccount",
+					"type": "string",
+					"required": false
+				},
+				"bankCode": {
+					"title": "Kód banky",
+					"transCode": "schema.org.bankCode",
+					"type": "string",
+					"required": false
+				},
+				"iban": {
+					"title": "IBAN",
+					"transCode": "schema.org.iban",
+					"type": "string",
+					"required": false
+				},
+				"swift": {
+					"title": "SWIFT",
+					"transCode": "schema.org.swift",
+					"type": "string",
+					"required": false
+				},
+				"street": {
+					"title": "Ulica",
+					"transCode": "schema.org.street",
+					"type": "string",
+					"required": true
+				},
+				"houseNumber": {
+					"title": "Číslo domu",
+					"transCode": "schema.org.houseNumber",
+					"type": "string",
+					"required": true
+				},
+				"city": {
+					"title": "Obec",
+					"transCode": "schema.org.city",
+					"type": "string",
+					"required": true
+				},
+				"zipCode": {
+					"title": "PSČ",
+					"transCode": "schema.org.zipCode",
+					"type": "string",
+					"required": true
+				},
+				"country": {
+					"title": "Štát",
+					"transCode": "schema.org.country",
+					"type": "string",
+					"required": true
 				}
 			}
 		}

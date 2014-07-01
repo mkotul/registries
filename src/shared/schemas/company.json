@@ -2,12 +2,38 @@
 	"$schema": "http://json-schema.org/schema#",
 	"id": "uri://registries/company#",
 	"new": {
-        "$ref": "uri://registries/organization#"
+		"baseData": {
+			"$ref": "uri://registries/orgnization#properties/baseData"
+		},
+		"logoInfo": {
+			"$ref": "uri://registries/orgnization#properties/logoInfo"
+		},
+		"contactInfo": {
+			"$ref": "uri://registries/orgnization#properties/contactInfo"
+		},
+		"bankInfo": {
+			"$ref": "uri://registries/orgnization#properties/bankInfo"
+		}
 	},
 	"view": {
         "$ref": "uri://registries/organization#"
 	},
 	"search": {
-        "$ref": "uri://registries/organization#"
+        "table": "organizations",
+    	"title": "organizacia",
+        "listFields": {
+            "$ref": "uri://registries/orgnization#listFields"
+        },
+        "properties": {
+            "baseData": {
+                "$ref": "uri://registries/orgnization#properties/baseData"
+            },
+            "contactInfo": {
+                "$ref": "uri://registries/orgnization#properties/contactInfo"
+            },
+            "bankInfo": {
+                "$ref": "uri://registries/orgnization#properties/bankInfo"
+            }
+        }
 	}
 }

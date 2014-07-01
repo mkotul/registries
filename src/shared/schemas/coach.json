@@ -7,8 +7,8 @@
 			"baseData" : {
 				"$ref": "uri://registries/people#person/properties/baseData"
 			},
-			"additionalInfo": {
-				"$ref": "uri://registries/people#person/properties/additionalDataCoach"
+			"futballCoach": {
+				"$ref": "uri://registries/people#person/properties/futballCoach"
 			},
 			"photoInfo": {
 				"$ref": "uri://registries/people#person/properties/photoInfo"
@@ -46,8 +46,8 @@
             "otherInfo": {
                 "$ref": "uri://registries/people#person/properties/otherInfo"
             },
-            "additionalDataCoach": {
-                "$ref": "uri://registries/people#person/properties/additionalDataCoach/properties/coachLicence"
+            "futballCoach": {
+                "$ref": "uri://registries/people#person/properties/futballCoach"
             }
         }
 	}
