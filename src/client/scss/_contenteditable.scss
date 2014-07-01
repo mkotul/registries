@@ -1,0 +1,150 @@
+.psui-contenteditable{
+	
+	padding-
+	
+	+ .psui-buttons-holder{
+		
+		position:absolute;
+		top:-22px;
+		width:100%;
+		
+		button{
+			height:22px;
+			font-size:18px;
+			
+			&:before {
+			  position: relative;
+			  top: 1px;
+			  display: inline-block;
+			  font-family: $icon-font-family;
+			  font-style: normal;
+			  font-weight: normal;
+			  line-height: 1;
+			  -webkit-font-smoothing: antialiased;
+			  -moz-osx-font-smoothing: grayscale;
+			}
+
+			&.psui-contenteditable-bold {
+			
+				&:before { 
+					content: "\e048"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-indent {
+			
+				&:before { 
+					content: "\e057"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-outdent {
+			
+				&:before { 
+					content: "\e058"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-italic {
+			
+				&:before { 
+					content: "\e049"; 
+				}
+				
+			}
+			
+			&[class*="psui-contenteditable-"]{
+				&:before { 
+					top:0px;
+					font-size:14px;
+				}
+			}
+			
+			&.psui-contenteditable-h {
+			
+				&:before { 
+					content: "\e180"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-undo {
+			
+				&:before { 
+					content: "\e069"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-redo {
+			
+				&:before { 
+					content: "\e077"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-table {
+			
+				&:before { 
+					content: "\e011"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-image {
+			
+				&:before { 
+					content: "\e060"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-link {
+			
+				&:before { 
+					content: "\e135"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-center {
+			
+				&:before { 
+					content: "\e053"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-left {
+			
+				&:before { 
+					content: "\e052"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-right {
+			
+				&:before { 
+					content: "\e054"; 
+				}
+				
+			}
+			
+			&.psui-contenteditable-justify {
+			
+				&:before { 
+					content: "\e055"; 
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+}

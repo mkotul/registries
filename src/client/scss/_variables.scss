@@ -94,3 +94,6 @@ $datepicker-other-days-color: lighten($font-color-base,50%);
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $main-color !default;
 $btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+
+// contenteditable
+$contenteditable-selected-color: $main-color !default;

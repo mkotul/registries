@@ -6,7 +6,7 @@ angular.module('psui-contenteditable', [])
 		restrict: 'AE',
 		require: ['?ngModel'],
 		link: function(scope, elm, attrs, ctrls) {
-
+			console.log('aaaaaaa');
 			var ngModel = null;
 			if (ctrls && ctrls[0]) {
 				ngModel = ctrls[0];
@@ -44,26 +44,26 @@ angular.module('psui-contenteditable', [])
 			var buttonsHolder = angular.element('<div class="psui-buttons-holder"></div>');
 			wrapper.append(buttonsHolder);
 
-			var buttonCenter = angular.element('<button>Center</button>');
-			var buttonLeft = angular.element('<button>Left</button>');
-			var buttonRight = angular.element('<button>Right</button>');
-			var buttonJustify = angular.element('<button>Justify</button>');
-			var buttonBold = angular.element('<button><b>Bold</b></button>');
-			var buttonItalic = angular.element('<button><i>Italic</i></button>');
+			var buttonCenter = angular.element('<button class="psui-contenteditable-center"></button>');
+			var buttonLeft = angular.element('<button class="psui-contenteditable-left"></button>');
+			var buttonRight = angular.element('<button class="psui-contenteditable-right"></button>');
+			var buttonJustify = angular.element('<button class="psui-contenteditable-justify"></button>');
+			var buttonBold = angular.element('<button class="psui-contenteditable-bold"></button>');
+			var buttonItalic = angular.element('<button class="psui-contenteditable-italic"></button>');
 			var buttonRemoveFormat = angular.element('<button>Remove format</button>');
 			var buttonRemoveHeading = angular.element('<button>Remove heading</button>');
-			var buttonLink = angular.element('<button>Link</button>');
-			var buttonImage = angular.element('<button>Image</button>');
-			var buttonUndo = angular.element('<button>Undo</button>');
-			var buttonRedo = angular.element('<button>Redo</button>');
-			var buttonH1 = angular.element('<button>H1</button>');
-			var buttonH2 = angular.element('<button>H2</button>');
-			var buttonH3 = angular.element('<button>H3</button>');
+			var buttonLink = angular.element('<button class="psui-contenteditable-link"></button>');
+			var buttonImage = angular.element('<button class="psui-contenteditable-image"></button>');
+			var buttonUndo = angular.element('<button class="psui-contenteditable-undo"></button>');
+			var buttonRedo = angular.element('<button class="psui-contenteditable-redo"></button>');
+			var buttonH1 = angular.element('<button class="psui-contenteditable-h">1</button>');
+			var buttonH2 = angular.element('<button class="psui-contenteditable-h">2</button>');
+			var buttonH3 = angular.element('<button class="psui-contenteditable-h">3</button>');
 			var buttonOL = angular.element('<button>OL</button>');
-			var buttonUL = angular.element('<button>UL</button>');
-			var buttonOutdent = angular.element('<button>Outdent</button>');
-			var buttonIndent = angular.element('<button>Indent</button>');
-			var buttonTable = angular.element('<button>Table</button>');
+			var buttonUL = angular.element('<button >UL</button>');
+			var buttonOutdent = angular.element('<button class="psui-contenteditable-outdent"></button>');
+			var buttonIndent = angular.element('<button class="psui-contenteditable-indent"></button>');
+			var buttonTable = angular.element('<button class="psui-contenteditable-table"></button>');
 
 			buttonsHolder.append(buttonCenter);
 			buttonsHolder.append(buttonLeft);
