@@ -316,8 +316,8 @@
 					"required": true,
 					"render": {
 						"component": "psui-uploadable-image",
-						"height": 244,
-						"width": 205
+						"height": 400,
+						"width": 300
 					}
 				}
 			}

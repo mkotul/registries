@@ -140,6 +140,94 @@
 				}
 			}
 		},
+		"volleyballAssociation":{
+			"title": "Volejbalový zväz",
+			"type": "object",
+			"properties": {
+				"sportName":{
+					"title": "Športový názov zväzu",
+					"type": "string",
+					"required": false
+				},
+				"ico": {
+					"title": "IČO",
+					"transCode": "schema.org.ico",
+					"type": "string",
+					"required": true
+				},
+				"birthDate": {
+					"title": "Dátum založenia",
+					"type": "string",
+					"required": false,
+					"render" : {
+						"component" : "psui-datepicker"
+					}
+				},
+				"stateOfAssociation": {
+					"title": "Stav zväzu",
+					"type": "string",
+					"required": true
+				},
+				"notPaying": {
+					"title": "Neplatič",
+					"type": "string",
+					"enum": [
+						"Áno",
+						"Nie"
+					],
+					"required": true
+				},
+				"dateOfRegistration": {
+					"title": "Dátum registrácie",
+					"type": "string",
+					"required": false,
+					"render" : {
+						"component" : "psui-datepicker"
+					}
+				}
+			}
+		},
+		"volleyballAssociationCurier": {
+			"title": "Volleyballový zväz - poštová adresa",
+			"type": "object",
+			"properties": {
+				"contactPerson": {
+					"title": "Kontaktná osoba",
+					"type": "string",
+					"required": false
+				},
+				"mobileNumberOfContactPerson": {
+					"title": "Telefónne číslo kontaktnej osoby",
+					"type": "string",
+					"required": false
+				},
+				"street": {
+					"title": "Ulica",
+					"type": "string",
+					"required": false
+				},
+				"houseNumber": {
+					"title": "Číslo domu",
+					"type": "string",
+					"required": false
+				},
+				"city": {
+					"title": "Obec",
+					"type": "string",
+					"required": false
+				},
+				"zipCode": {
+					"title": "PSČ",
+					"type": "string",
+					"required": false
+				},
+				"country": {
+					"title": "Štát",
+					"type": "string",
+					"required": false
+				}
+			}
+		},
 		"logoInfo": {
 			"title": "Logá",
 			"transCode": "schema.org.logoInfo",
@@ -152,8 +240,8 @@
 					"required": true,
 					"render": {
 						"component": "psui-uploadable-image",
-						"height": 244,
-						"width": 205
+						"height": 400,
+						"width": 300
 					}
 				}
 			}

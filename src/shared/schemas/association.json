@@ -1,0 +1,54 @@
+{
+	"$schema" : "http://json-schema.org/schema#",
+	"id" : "uri://registries/association#",
+	"new" : {
+		"table" : "organizations",
+		"properties" : {
+			"baseData" : {
+				"$ref": "uri://registries/organization#properties/baseData"
+			},
+			"volleyballClub":{
+				"$ref": "uri://registries/organization#properties/volleyballAssociation"
+			},
+			"volleyballClubCurier":{
+				"$ref": "uri://registries/organization#properties/volleyballAssociationCurier"
+			},
+			"logoInfo": {
+				"$ref": "uri://registries/organization#properties/logoInfo"
+			},
+			"contactInfo": {
+				"$ref": "uri://registries/organization#properties/contactInfo"
+			},
+			"bankInfo": {
+				"$ref": "uri://registries/organization#properties/bankInfo"
+			}
+		}
+	},
+	"view" : {
+		"$ref" : "uri://registries/association#new"
+	},
+	"search" : {
+		"table": "organizations",
+    	"title": "organizácia",
+        "listFields": {
+            "$ref": "uri://registries/organization#listFields"
+        },
+        "properties": {
+            "baseData": {
+                "$ref": "uri://registries/organization#properties/baseData"
+            },
+            "contactInfo": {
+                "$ref": "uri://registries/organization#properties/contactInfo"
+            },
+            "bankInfo": {
+                "$ref": "uri://registries/organization#properties/bankInfo"
+            },
+            "volleyballClub": {
+                "$ref": "uri://registries/organization#properties/volleyballAssociation"
+            },
+			"volleyballClubCurier": {
+                "$ref": "uri://registries/organization#properties/volleyballAssociationCurier"
+            }
+        }
+	}
+}
