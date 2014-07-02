@@ -56,7 +56,7 @@ angular.module('registries')
 		"schema.org.bankInfo":"Fakturačné údaje",
 		"schema.org.merchantName":"Obchodný názov spoločnosti",
 		"schema.org.statutarOrgan":"Štatutárny orgán",
-		"schema.org.stateOfOrganzation":"Stav organizácie",
+		"schema.org.stateOfOrganization":"Stav organizácie",
 		"schema.org.ico":"IČO",
 		"schema.org.dic":"DIČ",
 		"schema.org.icDPH":"IČ DPH",
@@ -72,6 +72,7 @@ angular.module('registries')
 		"menu.coach.title": "Tréner",
 		"menu.stadium.title": "Štadión",
 		"menu.club.title": "Klub",
+		"menu.association.title": "Zväz",
 		"menu.person.title": "Osoba",
 
 		"menu.company.title": "Spoločnosť",

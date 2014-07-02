@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<title>psui-selectbox</title>
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular-route/angular-route.js"></script>
+	<script src="js/psui-selectbox.js"></script>
+	<script src="js/psui-demo3.js"></script>
+	<script src="js/psui.js"></script>
+	<script src="lib/rangy/rangy-core.js"></script>
+	<script src="lib/rangy/rangy-selectionsaverestore.js"></script>
+	<script src="lib/rangy/rangy-serializer.js"></script>
+	<script src="lib/rangy/rangy-cssclassapplier.js"></script>
+	<script src="lib/ace-builds/src-min-noconflict/ace.js"></script>
+	<script src="lib/angular-ui-ace/ui-ace.js"></script>
+	
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/psui-selectbox.css">
+</head>
+<body ng-app="psui-demo3">
+<div ng-controller="psui-selectbox-demo-simple" id="demo3">
+	<h1>Selectbox</h1>
+	<div psui-selectbox psui-options="selectBoxOpts" ng-model="model.selected">xxxxxxxxxxxxxxxxxxxx</div>
+	{{model.selected}}
+</div>
+</body>
+</html>

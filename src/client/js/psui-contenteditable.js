@@ -31,52 +31,58 @@ angular.module('psui-contenteditable', [])
 			// create base html elements
 			if (elm.parent().hasClass('psui-wrapper')) {
 				// element is wrapped, we are going to use this wrapper
+				var buttonsHolder = angular.element('<div class="psui-contenteditable-buttons-holder"></div>');
+				wrapper.append(buttonsHolder);
 				wrapper = elm.parent;
 			} else {
 				// there is no wrapper, we have to create one
 				wrapper = angular.element('<div class="psui-wrapper"></div>');
+				var buttonsHolder = angular.element('<div class="psui-contenteditable-buttons-holder"></div>');
+				wrapper.append(buttonsHolder);
 				elm.wrap(wrapper);
 			}
 
 			elm.addClass('psui-contenteditable');
 			elm.attr('contenteditable', '');
 
-			var buttonsHolder = angular.element('<div class="psui-buttons-holder"></div>');
-			wrapper.append(buttonsHolder);
+			//var buttonsHolder = angular.element('<div class="psui-buttons-holder"></div>');
+			//wrapper.append(buttonsHolder);
 
-			var buttonCenter = angular.element('<button class="psui-contenteditable-center"></button>');
 			var buttonLeft = angular.element('<button class="psui-contenteditable-left"></button>');
+			var buttonCenter = angular.element('<button class="psui-contenteditable-center"></button>');
 			var buttonRight = angular.element('<button class="psui-contenteditable-right"></button>');
 			var buttonJustify = angular.element('<button class="psui-contenteditable-justify"></button>');
 			var buttonBold = angular.element('<button class="psui-contenteditable-bold"></button>');
 			var buttonItalic = angular.element('<button class="psui-contenteditable-italic"></button>');
-			var buttonRemoveFormat = angular.element('<button>Remove format</button>');
-			var buttonRemoveHeading = angular.element('<button>Remove heading</button>');
+			var buttonRemoveFormat = angular.element('<button  class="psui-contenteditable-remove-format"></button>');
+			
 			var buttonLink = angular.element('<button class="psui-contenteditable-link"></button>');
 			var buttonImage = angular.element('<button class="psui-contenteditable-image"></button>');
 			var buttonUndo = angular.element('<button class="psui-contenteditable-undo"></button>');
 			var buttonRedo = angular.element('<button class="psui-contenteditable-redo"></button>');
+			var buttonRemoveHeading = angular.element('<button class="psui-contenteditable-h">0</button>');
 			var buttonH1 = angular.element('<button class="psui-contenteditable-h">1</button>');
 			var buttonH2 = angular.element('<button class="psui-contenteditable-h">2</button>');
 			var buttonH3 = angular.element('<button class="psui-contenteditable-h">3</button>');
-			var buttonOL = angular.element('<button>OL</button>');
-			var buttonUL = angular.element('<button >UL</button>');
+			var buttonOL = angular.element('<button class="psui-contenteditable-ol"></button>');
+			var buttonUL = angular.element('<button class="psui-contenteditable-ul"></button>');
 			var buttonOutdent = angular.element('<button class="psui-contenteditable-outdent"></button>');
 			var buttonIndent = angular.element('<button class="psui-contenteditable-indent"></button>');
 			var buttonTable = angular.element('<button class="psui-contenteditable-table"></button>');
 
-			buttonsHolder.append(buttonCenter);
 			buttonsHolder.append(buttonLeft);
+			buttonsHolder.append(buttonCenter);
 			buttonsHolder.append(buttonRight);
 			buttonsHolder.append(buttonJustify);
 			buttonsHolder.append(buttonBold);
 			buttonsHolder.append(buttonItalic);
 			buttonsHolder.append(buttonRemoveFormat);
-			buttonsHolder.append(buttonRemoveHeading);
+			
 			buttonsHolder.append(buttonLink);
 			buttonsHolder.append(buttonImage);
 			buttonsHolder.append(buttonUndo);
 			buttonsHolder.append(buttonRedo);
+			buttonsHolder.append(buttonRemoveHeading);
 			buttonsHolder.append(buttonH1);
 			buttonsHolder.append(buttonH2);
 			buttonsHolder.append(buttonH3);

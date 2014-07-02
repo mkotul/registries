@@ -1,3 +1,5 @@
+$psui-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
+
 // Devices
 $device-mobile-tablet-width: 768px !default;
 /*$device-tablet-width: 1024px !default;*/
@@ -29,10 +31,12 @@ $font-size-h5:            $font-size-base !default;
 $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 
 // Iconography
-/*$icon-font-path: "../fonts/" !default;
-$icon-font-name: "font" !default;
-$icon-font-svg-id: "font" !default;*/
+$icon-font-path: "../fonts/" !default;
 $icon-font-family: "Glyphicons Halflings" !default;
+
+$icon-font2-name: "icomoon" !default;
+$icon-font2-svg-id: "icomoon" !default;
+$icon-font2-family: "Icon unionsoft" !default;
 
 // Header
 $header-height: 46px !default;
@@ -97,3 +101,6 @@ $btn-primary-border:             darken($btn-primary-bg, 5%) !default;
 
 // contenteditable
 $contenteditable-selected-color: $main-color !default;
+$contenteditable-background-color:#333333 !default;
+$contenteditable-border-color:#636363 !default;
+$contenteditable-font-color:#ffffff !default;

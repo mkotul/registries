@@ -1,4 +1,4 @@
-angular.module('registry', ['schema-utils', 'psui', 'psui.form-ctrl', 'psui-objectlink'])
+angular.module('registry', ['schema-utils', 'psui', 'psui.form-ctrl', 'psui-objectlink', 'psui-selectbox'])
 .controller('registry.newCtrl', ['$route',
 		'$scope',
 		'$routeParams',

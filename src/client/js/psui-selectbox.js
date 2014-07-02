@@ -10,7 +10,15 @@ angular.module('psui-selectbox', ['psui'])
 		},
 		require: ['?psuiOptions', '?ngModel'],
 		link: function(scope, elm, attrs, ctrls) {
+		
+		
+			
+		
+		
 			var data = ['ano', 'nie', 'Fero', 'Jozo', 'Jano', 'Gregor', 'Slniecko', 'Mesiacik', 'Domcek', 'Stromcek'];
+			
+			
+			
 			var wrapper;
 			var isDropdownVisible = false;
 
